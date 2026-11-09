@@ -59,6 +59,9 @@ jobs:
           - host: ubuntu-latest
             target: aarch64-unknown-linux-gnu
             build: npm run build -- --target aarch64-unknown-linux-gnu --use-napi-cross
+          - host: windows-latest
+            target: x86_64-pc-windows-msvc
+            build: npm run build -- --target x86_64-pc-windows-msvc
     name: Build ${{ matrix.settings.target }}
     runs-on: ${{ matrix.settings.host }}
     steps:
@@ -91,7 +94,7 @@ jobs:
           path: ${{ env.APP_NAME }}.*.node
           if-no-files-found: error
 
-  test-macos:
+  test-macos-windows:
     name: Test ${{ matrix.settings.target }} - node@${{ matrix.node }}
     needs: build
     strategy:
@@ -103,6 +106,9 @@ jobs:
             architecture: arm64
           - host: macos-15-intel
             target: x86_64-apple-darwin
+            architecture: x64
+          - host: windows-latest
+            target: x86_64-pc-windows-msvc
             architecture: x64
         node: ['22', '24']
     runs-on: ${{ matrix.settings.host }}
@@ -153,7 +159,7 @@ jobs:
       id-token: write
     needs:
       - lint
-      - test-macos
+      - test-macos-windows
       - test-linux
     steps:
       - uses: actions/checkout@v7

@@ -6,7 +6,7 @@
 
 **Detect the language of a string in Node.js and TypeScript**, accurately even on short text: a single word, a name, a job title, a tweet, a search query. It identifies **75 languages** and runs offline, with no API key, network call or model download.
 
-This package is native Node.js bindings for [lingua](https://github.com/pemistahl/lingua-rs), the Rust language detection library known for its accuracy on short text. It's compiled with [napi-rs](https://napi.rs) and ships prebuilt binaries for macOS and Linux, so there's nothing to compile when you install.
+This package is native Node.js bindings for [lingua](https://github.com/pemistahl/lingua-rs), the Rust language detection library known for its accuracy on short text. It's compiled with [napi-rs](https://napi.rs) and ships prebuilt binaries for Windows, macOS and Linux, so there's nothing to compile when you install.
 
 ```ts
 import { LanguageDetector } from "@prospectbase/lingua";
@@ -38,8 +38,9 @@ npm installs only the binary for your platform, as an optional dependency. It's 
 |---|---|
 | macOS | arm64 (Apple Silicon), x64 (Intel) |
 | Linux, glibc (Debian, Ubuntu, RHEL, Amazon Linux, …) | x64, arm64 |
+| Windows | x64 |
 
-It needs Node.js 20 or later. Alpine (musl) and Windows aren't built yet.
+It needs Node.js 20 or later. The Windows binary links its C runtime statically, so it doesn't need the Visual C++ Redistributable. Alpine (musl) and Windows on Arm aren't built yet.
 
 ## How to detect the language of text in Node.js
 
