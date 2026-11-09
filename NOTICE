@@ -1,0 +1,7 @@
+@prospectbase/lingua
+Copyright 2026 ProspectBase
+
+This package contains a compiled build of lingua, including its language
+models: https://github.com/pemistahl/lingua-rs
+Copyright © 2020-present Peter M. Stahl
+Licensed under the Apache License, Version 2.0.

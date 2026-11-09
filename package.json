@@ -1,0 +1,51 @@
+{
+  "name": "@prospectbase/lingua",
+  "version": "0.1.0",
+  "description": "Native Node.js bindings for lingua-rs, the accurate natural language detector for short text",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prospectbase/lingua.git"
+  },
+  "license": "Apache-2.0",
+  "keywords": [
+    "lingua",
+    "language-detection",
+    "language-identification",
+    "nlp",
+    "napi-rs",
+    "rust"
+  ],
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "napi": {
+    "binaryName": "lingua",
+    "targets": [
+      "aarch64-apple-darwin",
+      "x86_64-apple-darwin",
+      "x86_64-unknown-linux-gnu",
+      "aarch64-unknown-linux-gnu"
+    ]
+  },
+  "engines": {
+    "node": ">= 20"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "scripts": {
+    "artifacts": "napi artifacts",
+    "build": "napi build --platform --release",
+    "build:debug": "napi build --platform",
+    "prepublishOnly": "napi prepublish -t npm",
+    "test": "node --test __test__/",
+    "version": "napi version"
+  },
+  "devDependencies": {
+    "@napi-rs/cli": "3.10.9"
+  }
+}
