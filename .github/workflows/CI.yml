@@ -21,6 +21,9 @@ on:
       - LICENSE
       - NOTICE
   pull_request: null
+  # A manual run, from the Actions tab or `gh workflow run CI`. On `main` it
+  # publishes like a push does when the head commit is a version commit.
+  workflow_dispatch: null
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -153,7 +156,7 @@ jobs:
   publish:
     name: Publish
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch')
     permissions:
       contents: write
       id-token: write
