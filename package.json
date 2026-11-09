@@ -1,22 +1,38 @@
 {
   "name": "@prospectbase/lingua",
   "version": "0.1.0",
-  "description": "Native Node.js bindings for lingua-rs, the accurate natural language detector for short text",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "description": "Accurate language detection for Node.js and TypeScript, even on short text. Native bindings for lingua-rs: 75 languages, offline, no API key.",
+  "keywords": [
+    "language-detection",
+    "language-detector",
+    "detect-language",
+    "language-identification",
+    "language-recognition",
+    "identify-language",
+    "lingua",
+    "nlp",
+    "natural-language-processing",
+    "text-classification",
+    "i18n",
+    "multilingual",
+    "short-text",
+    "ngram",
+    "napi-rs",
+    "native",
+    "rust",
+    "typescript"
+  ],
+  "homepage": "https://github.com/prospectbase/lingua#readme",
+  "bugs": {
+    "url": "https://github.com/prospectbase/lingua/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/prospectbase/lingua.git"
   },
   "license": "Apache-2.0",
-  "keywords": [
-    "lingua",
-    "language-detection",
-    "language-identification",
-    "nlp",
-    "napi-rs",
-    "rust"
-  ],
+  "main": "index.js",
+  "types": "index.d.ts",
   "files": [
     "index.js",
     "index.d.ts"
