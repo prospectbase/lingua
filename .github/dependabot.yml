@@ -1,0 +1,15 @@
+# Opens a PR when lingua publishes a release, so this package tracks lingua's
+# latest version. The PR moves the `=x.y.z` pin in Cargo.toml and Cargo.lock;
+# CI builds and tests it on every target. Before releasing, also update the
+# version named in README.md, and the language table and the test that counts
+# languages if lingua added any. See README §Upgrading lingua.
+version: 2
+updates:
+  - package-ecosystem: cargo
+    directory: /
+    schedule:
+      interval: weekly
+    allow:
+      - dependency-name: lingua
+    assignees:
+      - steve-scorn
