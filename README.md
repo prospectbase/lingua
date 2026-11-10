@@ -8,6 +8,8 @@
 
 This package is native Node.js bindings for [lingua](https://github.com/pemistahl/lingua-rs), the Rust language detection library known for its accuracy on short text. It's compiled with [napi-rs](https://napi.rs) and ships prebuilt binaries for Windows, macOS and Linux, so there's nothing to compile when you install.
 
+It wraps **lingua 1.8.0**, and is maintained to track lingua's latest release: each new version of lingua is followed by a release of this package built on it.
+
 ```ts
 import { LanguageDetector } from "@prospectbase/lingua";
 
@@ -173,7 +175,7 @@ Publishing reads the npm token in the repository secret `NPM_TOKEN`. `npm publis
 
 ### Upgrading lingua
 
-Bump the version pinned in `Cargo.toml` (`lingua = "=x.y.z"`), rebuild, run the tests, and release. Read lingua's release notes first: a release can add languages, which changes `supportedLanguages()`, the table above and the test that counts them.
+This package tracks lingua's latest release, so upgrade whenever lingua publishes one. Bump the version pinned in `Cargo.toml` (`lingua = "=x.y.z"`) and the version named at the top of this README, rebuild, run the tests, and release. Read lingua's release notes first: a release can add languages, which changes `supportedLanguages()`, the table above and the test that counts them.
 
 ## Credits and licence
 
