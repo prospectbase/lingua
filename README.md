@@ -38,11 +38,11 @@ npm installs only the binary for your platform, as an optional dependency. It's 
 
 | OS | Architectures |
 |---|---|
-| macOS | arm64 (Apple Silicon), x64 (Intel) |
+| macOS | arm64 (Apple Silicon) |
 | Linux, glibc (Debian, Ubuntu, RHEL, Amazon Linux, …) | x64, arm64 |
 | Windows | x64 |
 
-It needs Node.js 20 or later. The Windows binary links its C runtime statically, so it doesn't need the Visual C++ Redistributable. Alpine (musl) and Windows on Arm aren't built yet.
+It needs Node.js 20 or later. The Windows binary links its C runtime statically, so it doesn't need the Visual C++ Redistributable. Intel Macs, Alpine (musl) and Windows on Arm aren't built.
 
 ## How to detect the language of text in Node.js
 
