@@ -8,7 +8,7 @@
 
 This package is native Node.js bindings for [lingua](https://github.com/pemistahl/lingua-rs), the Rust language detection library known for its accuracy on short text. It's compiled with [napi-rs](https://napi.rs) and ships prebuilt binaries for Windows, macOS and Linux, so there's nothing to compile when you install.
 
-It wraps **lingua 1.8.0**, and is maintained to track lingua's latest release: each new version of lingua is followed by a release of this package built on it.
+It wraps **lingua 1.8.0**, and is maintained to track lingua's latest release: each new version of lingua is followed by a release of this package built on it. The package's version is the version of lingua it wraps.
 
 ```ts
 import { LanguageDetector } from "@prospectbase/lingua";
@@ -167,15 +167,17 @@ A release build compiles every language model in and takes under a minute on an 
 CI (`.github/workflows/CI.yml`) builds and tests every target on each push to `main`, and tests the Linux binaries inside Debian bookworm. It publishes when the head commit is a version commit:
 
 ```bash
-npm version patch   # or minor / major; commits "x.y.z"
+npm version 1.8.0   # the lingua version pinned in Cargo.toml; commits "1.8.0"
 git push
 ```
+
+The package's version is always the lingua version it wraps, so release with that number, never `npm version patch`, `minor` or `major`, which move it off lingua's.
 
 Publishing reads the npm token in the repository secret `NPM_TOKEN`. `npm publish` runs `napi prepublish`, which publishes one package per platform (`@prospectbase/lingua-darwin-arm64`, `-linux-x64-gnu`, …) and points the main package's `optionalDependencies` at them.
 
 ### Upgrading lingua
 
-This package tracks lingua's latest release, so upgrade whenever lingua publishes one. Bump the version pinned in `Cargo.toml` (`lingua = "=x.y.z"`) and the version named at the top of this README, rebuild, run the tests, and release. Read lingua's release notes first: a release can add languages, which changes `supportedLanguages()`, the table above and the test that counts them.
+This package tracks lingua's latest release, so upgrade whenever lingua publishes one. Bump the version pinned in `Cargo.toml` (`lingua = "=x.y.z"`) and the version named at the top of this README, rebuild, run the tests, and release with `npm version` and the new lingua version. Read lingua's release notes first: a release can add languages, which changes `supportedLanguages()`, the table above and the test that counts them.
 
 ## Credits and licence
 
