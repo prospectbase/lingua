@@ -1,6 +1,6 @@
 {
   "name": "@prospectbase/lingua",
-  "version": "0.1.0",
+  "version": "1.8.0",
   "description": "Accurate language detection for Node.js and TypeScript, even on short text. Native bindings for lingua-rs: 75 languages, offline, no API key.",
   "keywords": [
     "language-detection",
